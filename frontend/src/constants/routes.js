@@ -1,3 +1,4 @@
+// frontend/src/constants/routes.js
 // Route path definitions for the PRP application
 
 export const ROUTES = {

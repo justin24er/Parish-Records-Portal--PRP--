@@ -1,3 +1,4 @@
+// frontend/src/components/ui/Badge.jsx
 
 export default function Badge({ variant = 'primary', children, dot = false }) {
   return (

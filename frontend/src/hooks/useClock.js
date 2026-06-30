@@ -1,3 +1,4 @@
+// frontend/src/hooks/useClock.js
 // Provides a live date and time string updated every second.
 
 import { useState, useEffect } from 'react';

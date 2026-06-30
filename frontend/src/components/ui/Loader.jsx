@@ -1,3 +1,4 @@
+// frontend/src/components/ui/Loader.jsx
 
 import { Loader2 } from 'lucide-react';
 

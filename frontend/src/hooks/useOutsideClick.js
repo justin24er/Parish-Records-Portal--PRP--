@@ -1,3 +1,4 @@
+// frontend/src/hooks/useOutsideClick.js
 // Calls the provided callback when a click occurs outside the ref element.
 
 import { useEffect } from 'react';

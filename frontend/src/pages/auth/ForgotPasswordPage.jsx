@@ -120,7 +120,7 @@ export default function ForgotPasswordPage() {
             />
             <h2 className="auth-form-title">Barua Imetumwa!</h2>
             <p className="auth-form-subtitle" style={{ marginTop: 'var(--space-2)', lineHeight: 1.7 }}>
-              Tumekutumia maelekezo ya kurejesha password yako kwenye{' '}
+              Tumekutumia maelekezo ya kurejesha nywila yako kwenye{' '}
               <strong>{getValues('email')}</strong>. Angalia kikasha chako cha barua pepe.
             </p>
           </motion.div>

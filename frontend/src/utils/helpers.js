@@ -1,3 +1,4 @@
+// frontend/src/utils/helpers.js
 // General utility functions
 
 /**

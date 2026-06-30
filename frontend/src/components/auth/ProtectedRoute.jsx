@@ -1,3 +1,4 @@
+// frontend/src/components/auth/ProtectedRoute.jsx
 // Redirects unauthenticated users to the login page.
 
 import { Navigate, useLocation } from 'react-router-dom';

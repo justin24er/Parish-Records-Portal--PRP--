@@ -1,3 +1,4 @@
+// frontend/src/components/ui/EmptyState.jsx
 
 import { Inbox } from 'lucide-react';
 

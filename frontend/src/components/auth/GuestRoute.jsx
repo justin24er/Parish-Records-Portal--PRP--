@@ -1,3 +1,4 @@
+// frontend/src/components/auth/GuestRoute.jsx
 // Redirects already-authenticated users to dashboard.
 
 import { Navigate } from 'react-router-dom';

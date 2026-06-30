@@ -1,3 +1,5 @@
+// frontend/src/components/ui/SplashScreen.jsx
+// Full-screen branded loading screen shown on app start.
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { APP_ABBR, APP_NAME } from '../../constants/app';

@@ -1,3 +1,4 @@
+// frontend/src/components/layout/DashboardLayout.jsx
 // Wraps all authenticated pages with sidebar + topbar.
 
 import { Outlet } from 'react-router-dom';

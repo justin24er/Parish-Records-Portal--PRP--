@@ -1,3 +1,4 @@
+// frontend/src/components/layout/Sidebar.jsx
 
 import { NavLink, useNavigate } from 'react-router-dom';
 import {

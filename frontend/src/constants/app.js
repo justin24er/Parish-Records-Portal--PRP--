@@ -1,3 +1,4 @@
+// frontend/src/constants/app.js
 
 export const APP_NAME    = 'Parish Records Portal';
 export const APP_ABBR    = 'PRP';

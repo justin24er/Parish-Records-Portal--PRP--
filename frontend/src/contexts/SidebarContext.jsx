@@ -1,3 +1,4 @@
+// frontend/src/contexts/SidebarContext.jsx
 // Manages sidebar open/collapsed state across the app.
 
 import { createContext, useContext, useState, useEffect } from 'react';

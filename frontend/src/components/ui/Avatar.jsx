@@ -1,3 +1,5 @@
+// frontend/src/components/ui/Avatar.jsx
+
 import { getInitials } from '../../utils/helpers';
 
 const SIZE_MAP = {
