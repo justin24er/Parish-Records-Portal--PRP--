@@ -1,0 +1,114 @@
+/* ============================================================
+   PRP - Parish Records Portal
+   variables.css — Design Tokens
+   ============================================================ */
+
+:root {
+  /* ── Primary Palette ── */
+  --color-primary:        #1a6b4a;   /* deep liturgical green  */
+  --color-primary-light:  #2a8a61;   /* hover state            */
+  --color-primary-dark:   #124d36;   /* active / pressed       */
+  --color-primary-pale:   #e8f5ef;   /* tinted background      */
+
+  /* ── Accent ── */
+  --color-accent:         #c9973a;   /* sacred gold            */
+  --color-accent-light:   #e4b560;   /* gold hover             */
+  --color-accent-pale:    #fdf4e3;   /* gold tinted bg         */
+
+  /* ── Neutrals ── */
+  --color-white:          #ffffff;
+  --color-bg:             #f4f6f9;   /* page background        */
+  --color-surface:        #ffffff;   /* card / panel surface   */
+  --color-border:         #e2e8f0;   /* subtle border          */
+  --color-border-dark:    #cbd5e1;   /* stronger border        */
+
+  /* ── Text ── */
+  --color-text-primary:   #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted:     #94a3b8;
+  --color-text-inverse:   #ffffff;
+
+  /* ── Status ── */
+  --color-success:        #16a34a;
+  --color-success-pale:   #dcfce7;
+  --color-warning:        #d97706;
+  --color-warning-pale:   #fef3c7;
+  --color-danger:         #dc2626;
+  --color-danger-pale:    #fee2e2;
+  --color-info:           #0ea5e9;
+  --color-info-pale:      #e0f2fe;
+
+  /* ── Sidebar ── */
+  --sidebar-bg:           #0f3d28;   /* very dark green        */
+  --sidebar-width:        260px;
+  --sidebar-width-collapsed: 72px;
+  --sidebar-text:         #b8d4c8;
+  --sidebar-text-active:  #ffffff;
+  --sidebar-item-hover:   rgba(255,255,255,0.07);
+  --sidebar-item-active:  rgba(201,151,58,0.18);
+  --sidebar-accent:       #c9973a;
+
+  /* ── Topbar ── */
+  --topbar-height:        64px;
+  --topbar-bg:            #ffffff;
+  --topbar-border:        #e2e8f0;
+
+  /* ── Spacing ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Border Radius ── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg:   0 10px 30px rgba(0,0,0,0.1),  0 4px 8px rgba(0,0,0,0.05);
+  --shadow-xl:   0 20px 60px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
+
+  /* ── Typography ── */
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Crimson Pro', 'Georgia', serif;
+
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+  --text-4xl:  2.25rem;    /* 36px */
+
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --leading-loose:  1.75;
+
+  /* ── Transitions ── */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Z-Index ── */
+  --z-sidebar:  100;
+  --z-topbar:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+  --z-tooltip:  500;
+}

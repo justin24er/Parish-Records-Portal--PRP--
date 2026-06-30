@@ -1,0 +1,147 @@
+/* ============================================================
+   PRP - Parish Records Portal
+   responsive.css
+   ============================================================ */
+
+/* ── Breakpoints
+   xs:  < 480px   (small mobile)
+   sm:  < 640px   (mobile)
+   md:  < 768px   (large mobile / portrait tablet)
+   lg:  < 1024px  (tablet landscape / small laptop)
+   xl:  < 1280px  (laptop)
+   2xl: ≥ 1280px  (desktop)
+──────────────────────────────────────────────── */
+
+/* ── Tablet and below: hide desktop sidebar, enable mobile ── */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal), width var(--transition-normal);
+    width: var(--sidebar-width) !important;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .main-area {
+    margin-left: 0 !important;
+  }
+
+  .topbar {
+    left: 0 !important;
+  }
+
+  .topbar-mobile-toggle {
+    display: flex !important;
+  }
+
+  .topbar-datetime {
+    display: none;
+  }
+}
+
+/* ── Stat cards grid ── */
+@media (max-width: 1280px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── Page content padding ── */
+@media (max-width: 640px) {
+  .page-content {
+    padding: var(--space-4);
+  }
+
+  .page-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Welcome banner ── */
+@media (max-width: 768px) {
+  .welcome-banner {
+    padding: var(--space-5);
+  }
+  .welcome-banner-logo { display: none; }
+}
+
+/* ── Topbar search ── */
+@media (max-width: 768px) {
+  .topbar-search {
+    display: none;
+  }
+}
+
+/* ── Auth panel ── */
+@media (max-width: 900px) {
+  .auth-panel-left { display: none; }
+  .auth-panel-right { width: 100%; }
+}
+
+/* ── Tables on mobile ── */
+@media (max-width: 640px) {
+  .table thead { display: none; }
+  .table tbody tr {
+    display: block;
+    padding: var(--space-3);
+    border-bottom: 2px solid var(--color-border);
+  }
+  .table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-1) 0;
+  }
+  .table tbody td::before {
+    content: attr(data-label);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ── Dashboard grid ── */
+@media (max-width: 1100px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Quick actions ── */
+@media (max-width: 480px) {
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Pagination ── */
+@media (max-width: 640px) {
+  .pagination {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+}
+
+/* ── Modal ── */
+@media (max-width: 640px) {
+  .modal-box {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+}

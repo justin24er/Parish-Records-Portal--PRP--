@@ -1,0 +1,87 @@
+/* ============================================================
+   PRP - Parish Records Portal
+   index.css — Main CSS Entry Point
+   ============================================================ */
+
+@import './styles/variables.css';
+@import './styles/global.css';
+@import './styles/animations.css';
+@import './styles/buttons.css';
+@import './styles/forms.css';
+@import './styles/cards.css';
+@import './styles/tables.css';
+@import './styles/layout.css';
+@import './styles/sidebar.css';
+@import './styles/navbar.css';
+@import './styles/login.css';
+@import './styles/dashboard.css';
+@import './styles/responsive.css';
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-4);
+  backdrop-filter: blur(3px);
+}
+.modal-box {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn var(--transition-normal) ease;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+.modal-title { font-size: var(--text-lg); font-weight: var(--weight-semibold); }
+.modal-body  { padding: var(--space-6); }
+.modal-footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex; justify-content: flex-end; gap: var(--space-3);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px var(--space-2); border-radius: var(--radius-full);
+  font-size: 11px; font-weight: var(--weight-medium); white-space: nowrap;
+}
+.badge-primary { background: var(--color-primary-pale); color: var(--color-primary); }
+.badge-success { background: var(--color-success-pale); color: var(--color-success); }
+.badge-warning { background: var(--color-warning-pale); color: var(--color-warning); }
+.badge-danger  { background: var(--color-danger-pale);  color: var(--color-danger);  }
+.badge-info    { background: var(--color-info-pale);    color: var(--color-info);    }
+.badge-neutral { background: var(--color-bg); color: var(--color-text-muted); border: 1px solid var(--color-border); }
+
+/* ── Skeleton ── */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-bg) 25%, var(--color-border) 50%, var(--color-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+.skeleton-text { height: 14px; border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
+.skeleton-text.w-75  { width: 75%; }
+.skeleton-text.w-50  { width: 50%; }
+.skeleton-text.w-100 { width: 100%; }
+
+/* ── Breadcrumb ── */
+.breadcrumb { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.breadcrumb-item { color: var(--color-text-muted); text-decoration: none; transition: color var(--transition-fast); }
+.breadcrumb-item:hover { color: var(--color-primary); }
+.breadcrumb-item.active { color: var(--color-text-primary); font-weight: var(--weight-medium); }
+.breadcrumb-sep { color: var(--color-border-dark); }

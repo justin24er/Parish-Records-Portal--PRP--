@@ -1,0 +1,79 @@
+/* ============================================================
+   PRP - Parish Records Portal
+   animations.css
+   ============================================================ */
+
+/* ── Keyframes ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes splashFadeOut {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes logoBounce {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+@keyframes dotsLoad {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+  40%            { transform: scale(1); opacity: 1;   }
+}
+
+/* ── Utility Animation Classes ── */
+.animate-fade-in      { animation: fadeIn      var(--transition-normal) ease both; }
+.animate-fade-in-up   { animation: fadeInUp    var(--transition-slow)   ease both; }
+.animate-fade-in-down { animation: fadeInDown  var(--transition-slow)   ease both; }
+.animate-fade-in-left { animation: fadeInLeft  var(--transition-slow)   ease both; }
+.animate-scale-in     { animation: scaleIn     var(--transition-normal) ease both; }
+.animate-spin         { animation: spin 1s linear infinite; }
+.animate-pulse        { animation: pulse 2s ease-in-out infinite; }
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
