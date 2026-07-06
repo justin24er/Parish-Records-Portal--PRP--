@@ -3,7 +3,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Droplets, FileText, BookOpen,
-  BarChart2, Bell, Settings, LogOut, ChevronLeft, ChevronRight,
+  BarChart2, Bell, Settings, LogOut, ChevronLeft, ChevronRight, ShieldCheck,
 } from 'lucide-react';
 
 import { useSidebar }  from '../../contexts/SidebarContext';
@@ -11,6 +11,8 @@ import { useAuth }     from '../../contexts/AuthContext';
 import { NAV_ITEMS }   from '../../constants/routes';
 import { APP_ABBR, APP_NAME, PARISH_NAME } from '../../constants/app';
 import toast from 'react-hot-toast';
+
+const ROLE_RANK = { viewer: 1, secretary: 2, admin: 3, super_admin: 4 };
 
 // Icon map for nav items
 const ICON_MAP = {
@@ -23,11 +25,12 @@ const ICON_MAP = {
   Bell,
   Settings,
   LogOut,
+  ShieldCheck,
 };
 
 export default function Sidebar() {
   const { collapsed, mobileOpen, toggleCollapsed, closeMobile } = useSidebar();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const navigate   = useNavigate();
 
   async function handleLogout() {
@@ -42,8 +45,12 @@ export default function Sidebar() {
     }
   }
 
-  // Group nav items by section
-  const sections = NAV_ITEMS.reduce((acc, item) => {
+  // Group nav items by section, hiding items above the user's role
+  // (e.g. "Watumiaji" only shows for admin/super_admin — Katibu/Padre).
+  const visibleItems = NAV_ITEMS.filter(
+    (item) => !item.minRole || (ROLE_RANK[user?.role] || 0) >= ROLE_RANK[item.minRole]
+  );
+  const sections = visibleItems.reduce((acc, item) => {
     const key = item.section || '__root__';
     (acc[key] = acc[key] || []).push(item);
     return acc;

@@ -112,3 +112,60 @@
   --z-toast:    400;
   --z-tooltip:  500;
 }
+
+/* ============================================================
+   Dark theme — activated by [data-theme="dark"] on <html>.
+   Every component reads these same variable names, so the whole
+   app re-themes with zero per-component changes.
+   ============================================================ */
+[data-theme='dark'] {
+  --color-primary:        #2f9d6f;
+  --color-primary-light:  #3fbf8a;
+  --color-primary-dark:   #1a6b4a;
+  --color-primary-pale:   #12362a;
+
+  --color-accent:         #d9a94a;
+  --color-accent-light:   #e9c274;
+  --color-accent-pale:    #3a2f16;
+
+  --color-white:          #ffffff;
+  --color-bg:             #0f1512;
+  --color-surface:        #17201b;
+  --color-border:         #263129;
+  --color-border-dark:    #34413a;
+
+  --color-text-primary:   #f1f5f2;
+  --color-text-secondary: #b7c3bc;
+  --color-text-muted:     #86948c;
+  --color-text-inverse:   #0f1512;
+
+  --color-success:        #22c55e;
+  --color-success-pale:   #123322;
+  --color-warning:        #f59e0b;
+  --color-warning-pale:   #3a2a0a;
+  --color-danger:         #f87171;
+  --color-danger-pale:    #3a1414;
+  --color-info:           #38bdf8;
+  --color-info-pale:      #0d2b3a;
+
+  --sidebar-bg:           #0a1f15;
+  --sidebar-text:         #a9c6ba;
+  --sidebar-text-active:  #ffffff;
+  --sidebar-item-hover:   rgba(255,255,255,0.06);
+  --sidebar-item-active:  rgba(217,169,74,0.22);
+  --sidebar-accent:       #d9a94a;
+
+  --topbar-bg:            #17201b;
+  --topbar-border:        #263129;
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.25);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.25);
+  --shadow-lg:   0 10px 30px rgba(0,0,0,0.45), 0 4px 8px rgba(0,0,0,0.3);
+  --shadow-xl:   0 20px 60px rgba(0,0,0,0.55), 0 8px 16px rgba(0,0,0,0.35);
+}
+
+/* Smooth, non-jarring theme transitions on the elements that carry color */
+body, .card, .stat-card, .topbar, .sidebar, .welcome-banner,
+.form-control, .btn, .dropdown-menu {
+  transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
+}

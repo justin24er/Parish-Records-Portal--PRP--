@@ -4,8 +4,13 @@ export const APP_NAME    = 'Parish Records Portal';
 export const APP_ABBR    = 'PRP';
 export const APP_VERSION = '1.0.0';
 
-export const PARISH_NAME    = 'Parokia ya Mama wa Huruma';
-export const PARISH_DIOCESE = 'Jimbo Kuu la Dar es Salaam';
+// NOTE: PARISH_NAME/PARISH_DIOCESE below are just local fallbacks shown
+// before a parish profile is loaded from the backend. This system is built
+// for ANY parish/diocese to use — each installation configures its own
+// parish name via the Mipangilio (Settings) page or backend `parishes` table,
+// it is not tied to a single diocese.
+export const PARISH_NAME    = 'Parokia Yako';
+export const PARISH_TAGLINE = 'Mfumo wa Kidijitali kwa Parokia Yoyote';
 
 export const SPLASH_DURATION_MS = 2800;
 
