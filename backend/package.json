@@ -1,0 +1,34 @@
+{
+  "name": "prp-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Parish Records Portal (PRP) - Secure REST API backend",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed:superadmin": "node src/scripts/createSuperAdmin.js",
+    "seed:demo": "node src/scripts/seedDemoData.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.4.0",
+    "express-validator": "^7.2.0",
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14",
+    "multer": "^1.4.5-lts.1",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1",
+    "compression": "^1.7.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -11,6 +11,7 @@ import { SPLASH_DURATION_MS } from './constants/app';
 // Core layout & guards
 import SplashScreen      from './components/ui/SplashScreen';
 import ProtectedRoute    from './components/auth/ProtectedRoute';
+import RoleRoute         from './components/auth/RoleRoute';
 import GuestRoute        from './components/auth/GuestRoute';
 import DashboardLayout   from './components/layout/DashboardLayout';
 
@@ -21,6 +22,8 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 
 // Dashboard pages
 import DashboardPage     from './pages/dashboard/DashboardPage';
+import VitabuPage        from './pages/vitabu/VitabuPage';
+import UsersPage         from './pages/users/UsersPage';
 
 // Placeholder pages (future modules will replace these)
 import PlaceholderPage   from './pages/PlaceholderPage';
@@ -69,7 +72,8 @@ export default function App() {
           <Route path={ROUTES.WAUMINI}    element={<PlaceholderPage title="Waumini"           icon="Users"       />} />
           <Route path={ROUTES.SAKRAMENTI} element={<PlaceholderPage title="Sakramenti"        icon="Droplets"    />} />
           <Route path={ROUTES.VYETI}      element={<PlaceholderPage title="Vyeti"             icon="FileText"    />} />
-          <Route path={ROUTES.VITABU}     element={<PlaceholderPage title="Vitabu vya Kanisa" icon="BookOpen"    />} />
+          <Route path={ROUTES.VITABU}     element={<VitabuPage />} />
+          <Route path={ROUTES.WATUMIAJI}  element={<RoleRoute minRole="admin"><UsersPage /></RoleRoute>} />
           <Route path={ROUTES.RIPOTI}     element={<PlaceholderPage title="Ripoti"            icon="BarChart2"   />} />
           <Route path={ROUTES.ARIFA}      element={<PlaceholderPage title="Arifa"             icon="Bell"        />} />
           <Route path={ROUTES.MIPANGILIO} element={<PlaceholderPage title="Mipangilio"        icon="Settings"    />} />

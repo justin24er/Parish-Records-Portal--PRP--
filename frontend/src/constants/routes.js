@@ -20,6 +20,7 @@ export const ROUTES = {
   ARIFA:           '/arifa',
   MIPANGILIO:      '/mipangilio',
   WASIFU:          '/wasifu',
+  WATUMIAJI:       '/watumiaji',
 };
 
 export const NAV_ITEMS = [
@@ -52,6 +53,13 @@ export const NAV_ITEMS = [
     path:    ROUTES.VITABU,
     icon:    'BookOpen',
     section: 'Hati',
+  },
+  {
+    label:   'Watumiaji',
+    path:    ROUTES.WATUMIAJI,
+    icon:    'ShieldCheck',
+    section: 'Usimamizi',
+    minRole: 'admin', // only Katibu/Padre (admin) and Super Admin see this in the sidebar
   },
   {
     label:   'Ripoti',

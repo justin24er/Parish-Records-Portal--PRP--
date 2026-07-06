@@ -11,7 +11,8 @@ import toast from 'react-hot-toast';
 
 import { useAuth }   from '../../contexts/AuthContext';
 import { ROUTES }    from '../../constants/routes';
-import { APP_ABBR, APP_NAME, PARISH_NAME, PARISH_DIOCESE } from '../../constants/app';
+import { APP_ABBR, APP_NAME, PARISH_TAGLINE } from '../../constants/app';
+import { MOCK_MODE } from '../../services/api';
 
 // ── Validation schema ──────────────────────────────────────────
 const schema = z.object({
@@ -48,9 +49,16 @@ export default function LoginPage() {
     setIsLoading(true);
     const tid = toast.loading('Inaingia...');
     try {
-      await login(data);
+      const u = await login(data);
       toast.dismiss(tid);
-      toast.success('Karibu! Umeingia kwa mafanikio.');
+      if (u.must_change_password) {
+        toast(
+          'Kwa usalama, tafadhali weka nywila mpya sasa (bofya "Umesahau Nywila?" kuendelea).',
+          { icon: '🔐', duration: 7000 }
+        );
+      } else {
+        toast.success('Karibu! Umeingia kwa mafanikio.');
+      }
       navigate(from, { replace: true });
     } catch (err) {
       toast.dismiss(tid);
@@ -99,7 +107,7 @@ export default function LoginPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          {PARISH_DIOCESE}
+          {PARISH_TAGLINE}
         </motion.p>
       </div>
 
@@ -200,21 +208,25 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Demo credentials notice */}
-          <div style={{
-            marginTop: 'var(--space-6)',
-            padding: 'var(--space-4)',
-            background: 'var(--color-primary-pale)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid rgba(26,107,74,0.15)',
-          }}>
-            <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-primary)', fontWeight: 'var(--weight-medium)', display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
-              <CheckCircle2 size={14} /> Taarifa za majaribio (Demo credentials):
-            </p>
-            <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-secondary)', marginTop: 4 }}>
-              admin@parokia.go.tz / password123
-            </p>
-          </div>
+          {/* Demo credentials — ONLY rendered while MOCK_MODE is on (local/dev
+              testing without a backend). Never shown once a real backend is
+              connected, so real deployments never leak sample login info. */}
+          {MOCK_MODE && (
+            <div style={{
+              marginTop: 'var(--space-6)',
+              padding: 'var(--space-4)',
+              background: 'var(--color-warning-pale)',
+              borderRadius: 'var(--radius-md)',
+              border: '1px dashed var(--color-warning)',
+            }}>
+              <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-warning)', fontWeight: 'var(--weight-semibold)', display: 'flex', alignItems: 'center', gap: 'var(--space-1)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <CheckCircle2 size={14} /> Hali ya Majaribio (Dev Mode) — si kwa matumizi halisi
+              </p>
+              <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-secondary)', marginTop: 4 }}>
+                admin@parokia.go.tz / password123
+              </p>
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

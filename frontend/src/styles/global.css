@@ -1,4 +1,28 @@
 /* ============================================================
+   Badges — small status/role pills. Used by Badge.jsx and
+   PlaceholderPage.jsx. Reads the same theme variables so it
+   re-colors correctly in dark mode automatically.
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full, 999px);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-primary   { background: var(--color-primary-pale);  color: var(--color-primary); }
+.badge-success   { background: var(--color-success-pale);  color: var(--color-success); }
+.badge-warning   { background: var(--color-warning-pale);  color: var(--color-warning); }
+.badge-danger    { background: var(--color-danger-pale);   color: var(--color-danger);  }
+.badge-info      { background: var(--color-info-pale);     color: var(--color-info);    }
+.badge-default   { background: var(--color-border);        color: var(--color-text-secondary); }
+
+/* ============================================================
    PRP - Parish Records Portal
    global.css — Reset & Base Styles
    ============================================================ */

@@ -2,10 +2,11 @@
 
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Menu, Search, Bell, Sun, ChevronDown, User, Settings, LogOut } from 'lucide-react';
+import { Menu, Search, Bell, Sun, Moon, ChevronDown, User, Settings, LogOut } from 'lucide-react';
 
 import { useSidebar }   from '../../contexts/SidebarContext';
 import { useAuth }      from '../../contexts/AuthContext';
+import { useTheme }     from '../../contexts/ThemeContext';
 import { useClock }     from '../../hooks/useClock';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import Avatar           from '../ui/Avatar';
@@ -15,6 +16,7 @@ import toast            from 'react-hot-toast';
 export default function Topbar() {
   const { collapsed, toggleMobile } = useSidebar();
   const { user, logout }            = useAuth();
+  const { isDark, toggleTheme }     = useTheme();
   const { date, time }              = useClock();
   const navigate                    = useNavigate();
 
@@ -66,14 +68,14 @@ export default function Topbar() {
           <span className="topbar-time">{time}</span>
         </div>
 
-        {/* Dark mode placeholder */}
+        {/* Theme toggle — light / dark mode */}
         <button
           className="topbar-icon-btn"
-          title="Hali ya giza (haitumiki bado)"
-          disabled
-          style={{ opacity: 0.4 }}
+          title={isDark ? 'Badili hadi Hali ya Mchana (Light mode)' : 'Badili hadi Hali ya Giza (Dark mode)'}
+          onClick={toggleTheme}
+          aria-label="Badili mandhari"
         >
-          <Sun size={18} />
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
         {/* Notifications */}

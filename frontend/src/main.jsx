@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 
 import { AuthProvider }    from './contexts/AuthContext';
 import { SidebarProvider } from './contexts/SidebarContext';
+import { ThemeProvider }   from './contexts/ThemeContext';
 import App                 from './App.jsx';
 
 import './index.css';
@@ -15,6 +16,7 @@ import './index.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <ThemeProvider>
       <AuthProvider>
         <SidebarProvider>
           <App />
@@ -46,6 +48,7 @@ createRoot(document.getElementById('root')).render(
           />
         </SidebarProvider>
       </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
 );

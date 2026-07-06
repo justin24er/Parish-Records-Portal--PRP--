@@ -11,7 +11,9 @@ import {
 
 import { useAuth }             from '../../contexts/AuthContext';
 import { dashboardService }    from '../../services/api';
-import { getGreeting, formatDateTime } from '../../utils/helpers';
+import { formatDateTime }      from '../../utils/helpers';
+import { useGreeting }         from '../../hooks/useGreeting';
+import { getQuoteOfTheDay }    from '../../data/bibleQuotes';
 import { ROUTES }              from '../../constants/routes';
 import { PARISH_NAME }         from '../../constants/app';
 import { SkeletonStatCard }    from '../../components/ui/SkeletonLoader';
@@ -91,7 +93,8 @@ const MOCK_ACTIVITIES = [
 export default function DashboardPage() {
   const { user }     = useAuth();
   const navigate     = useNavigate();
-  const greeting     = getGreeting();
+  const greeting     = useGreeting();
+  const quote        = getQuoteOfTheDay();
 
   const [stats,       setStats]       = useState(null);
   const [activities,  setActivities]  = useState(null);
@@ -126,9 +129,10 @@ export default function DashboardPage() {
         <div>
           <div className="welcome-greeting">{greeting}</div>
           <div className="welcome-name">{displayName} 👋</div>
-          <p className="welcome-desc">
-            {PARISH_NAME} — Karibu kwenye mfumo wa usimamizi wa parokia. Leo ni siku nzuri ya kufanya kazi!
+          <p className="welcome-desc welcome-quote">
+            “{quote.text}” <span className="welcome-quote-ref">— {quote.ref}</span>
           </p>
+          <p className="welcome-parish">{PARISH_NAME}</p>
         </div>
         <img
           src="/PRP_logo.png"
