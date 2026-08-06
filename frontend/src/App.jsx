@@ -1,3 +1,4 @@
+// THE PARISH RECORDS PORTAL
 // frontend/src/App.jsx
 // Root router — defines every route in the application.
 // Splash screen is shown once on initial load before navigating to /ingia.
