@@ -4,12 +4,12 @@
 //   npm run seed:demo
 
 require('dotenv').config();
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const db = require('../config/db');
 const userModel = require('../models/userModel');
 
 function main() {
-  const parishId = uuidv4();
+  const parishId = crypto.randomUUID();
   db.prepare(`INSERT INTO parishes (id, name, diocese, email) VALUES (?, ?, ?, ?)`).run(
     parishId,
     'Parokia ya Mfano',

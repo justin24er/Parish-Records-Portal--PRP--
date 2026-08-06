@@ -3,7 +3,7 @@
 // Marriage register, etc). Each kitabu groups sacrament records and scanned
 // document pages so registries stay organized instead of one big pile of files.
 
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const db = require('../config/db');
 const { logAction } = require('../utils/audit');
 
@@ -28,7 +28,7 @@ async function listVitabu(req, res) {
       VALUES (?, ?, ?, ?, ?, ?)
     `);
     const tx = db.transaction((rows) => {
-      for (const b of rows) insert.run(uuidv4(), parishId, b.code, b.name_sw, b.name_en, null);
+      for (const b of rows) insert.run(crypto.randomUUID(), parishId, b.code, b.name_sw, b.name_en, null);
     });
     tx(DEFAULT_BOOKS);
     books = db.prepare('SELECT * FROM vitabu WHERE parish_id = ? ORDER BY name_sw').all(parishId);
@@ -48,7 +48,7 @@ async function createVitabu(req, res) {
   if (!code || !nameSw || !nameEn) {
     return res.status(400).json({ message: 'code, nameSw na nameEn vinahitajika.' });
   }
-  const id = uuidv4();
+  const id = crypto.randomUUID();
   db.prepare(`
     INSERT INTO vitabu (id, parish_id, code, name_sw, name_en, description)
     VALUES (?, ?, ?, ?, ?, ?)

@@ -1,6 +1,6 @@
 // src/models/userModel.js
 const bcrypt = require('bcryptjs');
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const db = require('../config/db');
 
 const SALT_ROUNDS = 12;
@@ -37,7 +37,7 @@ function listUsers({ parishId = null, role = null } = {}) {
 }
 
 function createUser({ fullName, email, password, role = 'viewer', title = null, parishId = null, createdBy = null, mustChangePassword = 0 }) {
-  const id = uuidv4();
+  const id = crypto.randomUUID();
   db.prepare(`
     INSERT INTO users (id, parish_id, full_name, email, password_hash, role, title, created_by, must_change_password)
     VALUES (@id, @parishId, @fullName, @email, @passwordHash, @role, @title, @createdBy, @mustChangePassword)

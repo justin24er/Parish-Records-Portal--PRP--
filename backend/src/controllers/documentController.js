@@ -3,7 +3,7 @@
 // in-browser camera capture widget, which POSTs the captured JPEG blob here
 // exactly like a normal multipart upload.
 
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
 const db = require('../config/db');
@@ -14,7 +14,7 @@ async function uploadDocument(req, res) {
   if (!req.file) return res.status(400).json({ message: 'Hakuna faili lililotumwa.' });
 
   const { kitabuId, ownerType = 'general', ownerId = null, source = 'upload' } = req.body;
-  const id = uuidv4();
+  const id = crypto.randomUUID();
   const relativePath = path.join(req.uploadCategory || 'documents', req.file.filename);
 
   db.prepare(`

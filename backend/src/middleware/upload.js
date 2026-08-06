@@ -6,7 +6,7 @@
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const env = require('../config/env');
 
 const UPLOAD_ROOT = path.join(__dirname, '..', '..', 'uploads');
@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     const ext = path.extname(file.originalname) || guessExt(file.mimetype);
-    cb(null, `${Date.now()}-${uuidv4()}${ext}`);
+    cb(null, `${Date.now()}-${crypto.randomUUID()}${ext}`);
   },
 });
 

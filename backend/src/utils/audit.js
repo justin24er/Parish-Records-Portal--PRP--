@@ -4,7 +4,7 @@
 // view — there is no update/delete route for it — so it can serve as a real
 // audit trail if the system is ever questioned.
 
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const db = require('../config/db');
 
 const insertStmt = db.prepare(`
@@ -23,7 +23,7 @@ function logAction({
 }) {
   try {
     insertStmt.run({
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       actor_user_id: actorUserId,
       actor_email: actorEmail,
       action,

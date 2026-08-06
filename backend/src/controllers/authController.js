@@ -1,5 +1,5 @@
 // src/controllers/authController.js
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 const db = require('../config/db');
 const env = require('../config/env');
 const userModel = require('../models/userModel');
@@ -27,7 +27,7 @@ function issueTokens(res, user, req) {
   db.prepare(`
     INSERT INTO refresh_tokens (id, user_id, token_hash, user_agent, ip_address, expires_at)
     VALUES (?, ?, ?, ?, ?, datetime('now', '+7 days'))
-  `).run(uuidv4(), user.id, hashToken(refreshToken), req.headers['user-agent'] || null, req.ip);
+  `).run(crypto.randomUUID(), user.id, hashToken(refreshToken), req.headers['user-agent'] || null, req.ip);
 
   res.cookie(REFRESH_COOKIE, refreshToken, cookieOpts(7 * 24 * 60 * 60 * 1000));
   return accessToken;
@@ -147,7 +147,7 @@ async function forgotPassword(req, res) {
   db.prepare(`
     INSERT INTO password_resets (id, user_id, token_hash, expires_at, requested_ip)
     VALUES (?, ?, ?, datetime('now', '+' || ? || ' minutes'), ?)
-  `).run(uuidv4(), user.id, hash, env.RESET_TOKEN_EXPIRES_MIN, req.ip);
+  `).run(crypto.randomUUID(), user.id, hash, env.RESET_TOKEN_EXPIRES_MIN, req.ip);
 
   const resetUrl = `${env.CLIENT_URL}/weka-nywila-mpya?token=${raw}&uid=${user.id}`;
   const { subject, html, text } = passwordResetEmail({
