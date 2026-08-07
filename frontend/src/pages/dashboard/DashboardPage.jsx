@@ -89,6 +89,47 @@ const MOCK_ACTIVITIES = [
   { icon: AlertCircle,iconBg: 'var(--color-warning-pale)', iconColor: 'var(--color-warning)',  title: 'Kumbukumbu: Ndoa ya Juma & Fatuma — Jumamosi ijayo',        time: '2 siku zilizopita' },
 ];
 
+// ── Adapters: translate raw backend data into the shape our
+//    components (StatCard / ActivityItem) actually expect ──
+const ICON_MAP = { Users, Droplets, FileText, BookOpen, UserPlus, Printer, BarChart2, Bell, CheckCircle2, AlertCircle };
+
+const COLOR_CLASS_MAP = {
+  'stat-blue':   'blue',
+  'stat-green':  'green',
+  'stat-gold':   'gold',
+  'stat-purple': 'red', // no dedicated purple style yet — reuse 'red' for now
+};
+
+function adaptStats(rawStats) {
+  return rawStats.map((s) => ({
+    ...s,
+    icon: ICON_MAP[s.icon] || Users,
+    colorClass: COLOR_CLASS_MAP[s.colorClass] || 'blue',
+  }));
+}
+
+const ACTION_META = {
+  'auth.login.success':  { icon: CheckCircle2, iconBg: 'var(--color-success-pale)', iconColor: 'var(--color-success)', label: 'aliingia kwenye mfumo' },
+  'user.create':          { icon: UserPlus,    iconBg: 'var(--color-primary-pale)', iconColor: 'var(--color-primary)', label: 'aliongeza mtumiaji mpya' },
+  'user.delete':          { icon: AlertCircle, iconBg: 'var(--color-danger-pale)',  iconColor: 'var(--color-danger)',  label: 'alifuta mtumiaji' },
+  'user.force_reset_password': { icon: AlertCircle, iconBg: 'var(--color-warning-pale)', iconColor: 'var(--color-warning)', label: 'alituma nywila mpya ya muda' },
+  'document.upload':      { icon: FileText,    iconBg: 'var(--color-accent-pale)',  iconColor: 'var(--color-accent)',  label: 'alipakia hati mpya' },
+  'document.delete':      { icon: AlertCircle, iconBg: 'var(--color-danger-pale)',  iconColor: 'var(--color-danger)',  label: 'alifuta hati' },
+};
+
+function adaptActivities(rawLogs) {
+  return rawLogs.map((log) => {
+    const meta = ACTION_META[log.action] || { icon: Bell, iconBg: 'var(--color-info-pale)', iconColor: 'var(--color-info)', label: log.action };
+    return {
+      icon: meta.icon,
+      iconBg: meta.iconBg,
+      iconColor: meta.iconColor,
+      title: `${log.actor_name || 'Mtumiaji'} ${meta.label}`,
+      time: formatDateTime(log.created_at),
+    };
+  });
+}
+
 // ── Main page ──────────────────────────────────────────────────
 export default function DashboardPage() {
   const { user }     = useAuth();
