@@ -83,7 +83,7 @@ export default function LoginPage() {
           </div>
           <h1 className="auth-app-name">{APP_NAME}</h1>
           <p className="auth-tagline">
-            Mfumo wa kisasa wa kusimamia rekodi za parokia — salama, rahisi na wa kuamini.
+            Mfumo wa kisasa wa kusimamia rekodi za parokia salama, rahisi na wa kuamini.
           </p>
         </motion.div>
 
