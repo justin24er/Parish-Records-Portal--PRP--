@@ -149,8 +149,8 @@ export default function DashboardPage() {
           dashboardService.getStats(),
           dashboardService.getActivities(),
         ]);
-        setStats(sRes.data.stats ?? MOCK_STATS);
-        setActivities(aRes.data.activities ?? MOCK_ACTIVITIES);
+        setStats(sRes.data.stats ? adaptStats(sRes.data.stats) : MOCK_STATS);
+        setActivities(aRes.data.activities ? adaptActivities(aRes.data.activities) : MOCK_ACTIVITIES);
       } catch {
         // Backend not yet connected — use mock data
         setStats(MOCK_STATS);
