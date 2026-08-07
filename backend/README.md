@@ -1,4 +1,4 @@
-# PRP Backend — Parish Records Portal API
+# PRP Backend  Parish Records Portal API
 
 Secure REST API for the Parish Records Portal (PRP). Node.js + Express +
 SQLite (file-based, zero external DB server required to get started).
@@ -11,7 +11,7 @@ npm install
 cp .env.example .env
 ```
 
-Open `.env` and fill in real values — especially `JWT_ACCESS_SECRET`,
+Open `.env` and fill in real values  especially `JWT_ACCESS_SECRET`,
 `JWT_REFRESH_SECRET`, your SMTP credentials, and `SUPERADMIN_*`.
 
 Generate strong secrets:
@@ -27,7 +27,7 @@ npm run seed:superadmin
 
 This reads `SUPERADMIN_NAME` / `SUPERADMIN_EMAIL` / `SUPERADMIN_PASSWORD`
 from `.env` (or prompts you interactively if left blank). There is **no API
-route** that creates a super_admin — it can only be done from this script on
+route** that creates a super_admin  it can only be done from this script on
 the server itself, so nobody in the app, including other admins, can grant
 themselves your level of access.
 
