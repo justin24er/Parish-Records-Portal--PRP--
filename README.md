@@ -1,4 +1,4 @@
-<h1 align="center"><strong>Parish Records Portal (PRP)</strong></h2>
+<h1 align="center"><strong>🕊️ Parish Records Portal (PRP)</strong></h1>
 
 ## Development Specification
 
@@ -22,6 +22,7 @@ PRP shall provide a professional, clean, secure, responsive, and modern user exp
 
 The system language shall primarily be Swahili, with English helper descriptions where necessary to improve administrator understanding.
 
+![project overview](./docs/project_overview/project-overview.gif)
 ---
 
 # 2. Project Goal
