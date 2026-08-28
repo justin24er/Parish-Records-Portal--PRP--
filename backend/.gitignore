@@ -5,3 +5,4 @@ data/*.db-*
 uploads/**/*
 !uploads/**/.gitkeep
 *.log
+src/scripts/resetSuperAdminPassword.js
