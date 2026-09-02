@@ -1,4 +1,7 @@
-<h1 align="center"><strong>🕊️ Parish Records Portal (PRP)</strong></h1>
+<div align="center">
+<img src="./frontend/public/PRP-readme-logo-attachement.png" width="200" alt="PRP-logo-attachement">
+<h1 align="center"><strong>Parish Records Portal (PRP)</strong></h1>
+</div>
 
 ## Development Specification
 
