@@ -498,35 +498,7 @@ Meaningful commit messages
 
 ---
 
-# 22. AI Development Rules
-
-Before generating code
-
-Study attached design assets.
-
-Study provided logo.
-
-Study Catholic workflow.
-
-Maintain consistent UI.
-
-Do not invent unrelated features.
-
-Do not remove requested functionality.
-
-Do not simplify implementation.
-
-Maintain enterprise coding quality.
-
-Generate production-ready code.
-
-Comment complex logic.
-
-Maintain consistency across frontend, backend, and database.
-
----
-
-# 23. Deliverable
+# 22. Deliverable
 
 Version 1.0 establishes the official engineering foundation for Parish Records Portal.
 
